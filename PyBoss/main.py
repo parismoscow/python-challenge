@@ -3,11 +3,11 @@ import os
 cvs_path = os.path.join('..', 'Resources', 'employee_data.csv')
 with open(cvs_path, newline='') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
-    # print(csv_reader)
+    #print(csv_reader)
 
     csv_header = next(csv_reader)
-    print(csv_header, '\n')
-    # print(f'CSV Header: {csv_header}' '\n')
+    #print(csv_header, '\n')
+    #print(f'CSV Header: {csv_header}' '\n')
 
     
     us_state_abbrev = {
@@ -75,15 +75,17 @@ with open(cvs_path, newline='') as csv_file:
     abbreviation = []
     
     for row in csv_reader:
-        #print(row)
         ID.append(row[0])
         full_name = row[1].split(" ")   
         first_name.append(full_name[0])
         last_name.append(full_name[1])
-        #print(full_name)
         date_of_birth = row[2].split("-")
         dob.append(date_of_birth[1] + "/" + date_of_birth[2] + "/" + date_of_birth[0])
-        #print(dob)
         ssn=row[3].split("-")
         ssn_stars.append("***-**-" + ssn[2])
-        abbreviation.append(us_state_abbrev)
+        abbreviation.append(us_state_abbrev[row[4]])
+   
+    print('Emp ID','First Name','Last Name','DOB','SSN','State')
+    all_data = zip(ID, first_name, last_name, dob, ssn_stars,abbreviation)
+    for data in all_data:
+        print(','.join(data))
