@@ -4,10 +4,10 @@ cvs_path = os.path.join('..', 'Resources', 'budget_data.csv')
 
 with open(cvs_path, newline='') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
-    print(csv_reader)
+    #print(csv_reader)
 
     csv_header = next(csv_reader)
-    print(csv_header, '\n')
+    #print(csv_header, '\n')
     # print(f'CSV Header: {csv_header}' '\n')
 
     net_total = 0
@@ -18,7 +18,7 @@ with open(cvs_path, newline='') as csv_file:
         row_data = (row[0]).split(',')
         profit_loss = int(row_data[1])
         changes.append(profit_loss)
-        print(profit_loss)
+        #print(profit_loss)
         net_total = net_total + profit_loss
         count += 1
 
@@ -44,3 +44,23 @@ with open(cvs_path, newline='') as csv_file:
     print('Average Change', '$', average_change)
     print('Greatest Increase in Profits:', greatest_increase)
     print('Greatest Decrease in Profits:', greatest_decrease)
+
+    final_file = os.path.join("..",'Resources', "PyBank_Summary.txt")
+    with open (final_file, "w") as file:
+    # Write methods to print PyBank_summary
+        file.write('Financial Analysis')
+        file.write("\n")
+        file.write('__________________')
+        file.write("\n")
+        file.write(f"Total Months: {count}")
+        file.write("\n")
+        file.write(f"Total: ${net_total}")
+        file.write("\n")
+        file.write(f"Average Change: ${average_change}")
+        file.write("\n")
+        file.write(f"Greatest Increase in Profits: {greatest_increase}")
+        file.write("\n")
+        file.write(f"Greatest Decrease in Profits: {greatest_decrease}")
+        file.write("\n")
+    
+    
