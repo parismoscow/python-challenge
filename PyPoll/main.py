@@ -41,7 +41,7 @@ with open(cvs_path, newline='') as csv_file:
     print('Total Votes: {}'.format(number_of_votes), '\n-------------------------')
     print('{}:  {}%  ({})'.format(candidates[0], k_vote_percent, k_vote_counter))
     print('{}:  {}%  ({})'.format(candidates[1], c_vote_percent, c_vote_counter))
-    print('{}:  {}%  ({})'.format(candidates[1], c_vote_percent, c_vote_counter))
+    print('{}:  {}%  ({})'.format(candidates[1], l_vote_percent, l_vote_counter))
     print('{}:  {}%  ({})'.format(candidates[3], o_vote_percent, o_vote_counter))
     print('-------------------------')
 
