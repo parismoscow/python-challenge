@@ -1,9 +1,15 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
 import csv
 import os
-cvs_path = os.path.join('..', 'Resources', 'employee_data.csv')
+cvs_path = os.path.join('..', 'Resources', 'employee_data1.csv')
 with open(cvs_path, newline='') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
-    #print(csv_reader)
+    
 
     csv_header = next(csv_reader)
     #print(csv_header, '\n')
@@ -84,8 +90,21 @@ with open(cvs_path, newline='') as csv_file:
         ssn=row[3].split("-")
         ssn_stars.append("***-**-" + ssn[2])
         abbreviation.append(us_state_abbrev[row[4]])
-   
+        
     print('Emp ID','First Name','Last Name','DOB','SSN','State')
     all_data = zip(ID, first_name, last_name, dob, ssn_stars,abbreviation)
     for data in all_data:
         print(','.join(data))
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+

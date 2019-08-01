@@ -1,6 +1,12 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[2]:
+
+
 import csv
 import os
-cvs_path = os.path.join('..', 'Resources', 'budget_data.csv')
+cvs_path = os.path.join("..",'Resources', 'budget_data1.csv')
 
 with open(cvs_path, newline='') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
@@ -41,13 +47,19 @@ with open(cvs_path, newline='') as csv_file:
     greatest_increase = max(total_net_changes)
     greatest_decrease = min(total_net_changes)
 
+    #the max and min of the the montly profit change 
+    max_increase_value = max(changes)
+    max_decrease_value = min(changes)
+    
+     
+    
     print('Average Change', '$', average_change)
-    print('Greatest Increase in Profits:', greatest_increase)
-    print('Greatest Decrease in Profits:', greatest_decrease)
-
-    final_file = os.path.join("..",'Resources', "PyBank_Summary.txt")
+    print('Greatest Increase in Profits:' , greatest_increase)
+    print('Greatest Decrease in Profits:' , greatest_decrease)
+    
+    final_file = os.path.join("..",'Resources', "PyBank_Summary1.txt")
     with open (final_file, "w") as file:
-    # Write methods to print PyBank_summary
+    # Write methods to print PyBank summary
         file.write('Financial Analysis')
         file.write("\n")
         file.write('__________________')
@@ -64,3 +76,16 @@ with open(cvs_path, newline='') as csv_file:
         file.write("\n")
     
     
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
